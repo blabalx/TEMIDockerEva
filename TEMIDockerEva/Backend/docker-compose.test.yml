@@ -1,0 +1,38 @@
+# Archivo solo para pruebas
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quickorder
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - red_datos
+    
+
+  backend:
+    build: .
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: quickorder
+    depends_on:
+      - db
+    networks:
+      - red_datos
+      - red_aplicacion
+    ports:
+      - "5000:5000"   
+
+networks:
+  red_datos:
+  red_aplicacion:
+
+volumes:
+  db_data:
