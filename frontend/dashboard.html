@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickOrder - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">QuickOrder</a>
+      <div class="navbar-nav">
+        <a class="nav-link" href="index.html">Catálogo</a>
+        <a class="nav-link active" href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mb-5">
+    <h2 class="mb-4">Dashboard Analítico</h2>
+
+    <!-- KPIs Principales -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <div class="card bg-primary text-white shadow-sm text-center p-3">
+          <h6 class="text-uppercase">Total Productos</h6>
+          <h2 id="total-productos">-</h2>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-success text-white shadow-sm text-center p-3">
+          <h6 class="text-uppercase">Stock Total</h6>
+          <h2 id="stock-total">-</h2>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-info text-white shadow-sm text-center p-3">
+          <h6 class="text-uppercase">Precio Promedio</h6>
+          <h2 id="precio-promedio">-</h2>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card bg-warning text-dark shadow-sm text-center p-3">
+          <h6 class="text-uppercase">Económico / Costoso</h6>
+          <small id="prod-economico">Min: -</small><br>
+          <small id="prod-costoso">Max: -</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Listas -->
+    <div class="row g-4">
+      <!-- 3 Más Económicos -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-white border-bottom fw-bold">
+            Top 3 Productos Más Económicos
+          </div>
+          <ul class="list-group list-group-flush" id="top-economicos">
+            <!-- Carga dinámica -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5 Más Vendidos -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-white border-bottom fw-bold">
+            Top 5 Productos Más Vendidos
+          </div>
+          <ul class="list-group list-group-flush" id="top-vendidos">
+            <!-- Carga dinámica -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
